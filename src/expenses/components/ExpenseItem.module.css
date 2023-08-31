@@ -1,0 +1,38 @@
+.expenseItem{
+    border: 1px solid #008b68;
+    border-radius: 10px;
+    background-color: #FFF;
+    margin: 5px;
+    padding: 2px;
+    display: block;
+    width: 30%;
+
+}
+
+.title{
+    color: black;
+    margin: auto;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.expense-detail{
+    
+    
+    
+}
+
+.form-control__button{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width: 768px) {
+
+    .title{
+        font-size: 1rem;
+    }
+    
+}
