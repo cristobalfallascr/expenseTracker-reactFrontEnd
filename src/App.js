@@ -5,8 +5,11 @@ import {} from "react-router-dom";
 
 import ExpenseList from "./expenses/components/ExpenseList";
 import ExpenseItem from "./expenses/components/ExpenseItem";
+import HomeContainer from "./budgets/components/HomeContainer";
+import HomeItem from "./budgets/components/HomeItem";
 import Users from "./user/pages/Users";
 
+import CreateBudget from "./budgets/NewBudget/CreateBudget";
 const SAMPLEEXPENSE = [
   {
     id: Math.random(),
@@ -52,12 +55,25 @@ const SAMPLEEXPENSE = [
     usedBudget: 110,
     records: 3,
   },
+  {
+    id: Math.random(),
+    title: "Mant. Carro",
+    payType: "TC",
+    date: "12/08/2023",
+    amount: 11,
+    totalBudget: 100,
+    availableBudget: 11,
+    usedBudget: 89,
+    records: 1,
+  },
 ];
 
 const App = () => {
   return (
     <div>
-      <ExpenseList list={SAMPLEEXPENSE}></ExpenseList>
+      {/* <ExpenseList list={SAMPLEEXPENSE}></ExpenseList> */}
+      {/* <HomeContainer>       </HomeContainer> */}
+      <CreateBudget></CreateBudget>
     </div>
   );
 };

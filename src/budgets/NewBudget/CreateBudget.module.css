@@ -1,0 +1,22 @@
+
+.form-container{
+    border: none;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    width: 60%;
+    margin: auto;
+    margin-top: 2rem;
+    background-color:  rgba(255, 255, 255, 0.055) ;
+
+
+}
+
+.form-container h3{
+    font-size: 2rem;
+    color:#fff;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+

@@ -1,38 +1,105 @@
-.expenseItem{
-    border: 1px solid #008b68;
-    border-radius: 10px;
+.expense-item {
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid rgb(18, 119, 40);
+    border-radius: 5px;
     background-color: #FFF;
     margin: 5px;
     padding: 2px;
     display: block;
-    width: 30%;
-
-}
-
-.title{
-    color: black;
-    margin: auto;
-    text-align: center;
-    font-size: 1.5rem;
+    width: auto;
     cursor: pointer;
+
+
 }
 
-.expense-detail{
-    
-    
-    
+.expense-item-test{
+    background-color: red;
 }
 
-.form-control__button{
-    
+.expense-item-title{
+   
     display: flex;
     justify-content: center;
-    align-items: center;
+    
 }
+
+.expense-item-title h1 {
+    color: rgb(18, 119, 40);
+    margin: 0;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.5s;
+}
+
+
+.expense-item-icon{
+    margin: auto;
+    margin: 1px;
+    color: gray;
+    font-size: 14px;
+    transition: transform 0.5s ease-out;
+    
+}
+
+.expense-item-detail {
+    display: none;
+    transition: display 2s ease  
+}
+
+.expense-item.expanded .expense-item-icon {
+    transform: rotate(90deg);
+    
+
+}
+
+.expense-item.expanded .expense-item-detail{
+    display: block;
+    animation: fadeIn 1s ease-out 0.5 forwards ;
+}
+
+
+
+
+
+
+
+
+@keyframes fadeIn {
+    0% {
+        transform: translateY(-20px);
+        display: none;
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(2px);
+        display: block;
+        opacity: 1;
+    }
+
+}
+
+
 @media (max-width: 768px) {
 
-    .title{
+    .expenseItem {
+        display: flex;
+        flex-wrap: wrap;
+        border: 1px solid rgb(18, 119, 40);
+        border-radius: 5px;
+        background-color: #FFF;
+        margin: 5px;
+        padding: 2px;
+        display: block;
+        width: 50%;
+    
+    
+    }
+
+    .title {
         font-size: 1rem;
     }
-    
+
 }

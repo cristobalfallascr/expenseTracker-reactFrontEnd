@@ -1,33 +1,43 @@
 import React, { useState } from "react";
 import styles from "./ExpenseItem.module.css";
-import Button from "../../shared/Components/Button";
+import Fab from "@mui/material/Fab";
 
+import ControlPointIcon from "@mui/icons-material/ControlPoint";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 const ExpenseItem = (props) => {
+  console.log(styles);
   const [display, setDisplay] = useState("none");
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const clickHandler = (event) => {
-    console.log(event);
-    setDisplay("block");
+    if (!isExpanded) {
+      setIsExpanded(true);
+    } else {
+      setIsExpanded(false);
+    }
   };
 
   const leaveHandler = (event) => {
-    console.log(event.target);
-    setDisplay("none");
+    setIsExpanded(false);
   };
 
   return (
-    <div onMouseLeave={leaveHandler} className={styles.expenseItem}>
-      <h1 onClick={clickHandler} className={styles.title}>
-        {props.item.title} $ {props.item.totalBudget}
-      </h1>
-
-      <div className={styles["expense-detail"]} style={{ display: display }}>
-        <h2>Disponible: ${props.item.availableBudget}</h2>
-        <h3>Consumido: ${props.item.usedBudget}</h3>
-        <h2>Registros: {props.item.records}</h2>
+    <div
+      onMouseLeave={leaveHandler}
+      className={`${styles["expense-item"]} ${
+        styles[isExpanded ? "expanded" : ""]
+      }`}
+    >
+      <div className={styles["expense-item-title"]}>
+        <h1 className={styles.title}>{props.item.title}</h1>
+        <span onClick={clickHandler} className={styles["expense-item-icon"]}>
+          <PlayArrowIcon />
+        </span>
       </div>
-      <div className= {styles["form-control__button"]}>
-        <Button type="submit">+</Button>
+      <div className={styles["expense-item-detail"]}>
+        <p>${props.item.availableBudget} disponible</p>
+        <p>Consumido: ${props.item.usedBudget}</p>
+        <p>Registros: {props.item.records}</p>
       </div>
     </div>
   );

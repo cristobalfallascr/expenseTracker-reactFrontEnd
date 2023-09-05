@@ -1,0 +1,59 @@
+.container{
+  
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+    animation: fadeIn 3s;
+    
+}
+
+@keyframes fadeIn {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+    
+}
+
+.item-container{
+    margin: auto;
+    width: 100%;
+    height:200px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+ img{
+    
+    margin: 5px;
+    width:100%;
+    height: 100%;
+    object-fit:cover;
+    object-position: 80% 80%;
+    z-index: -1;
+    transition: width 2s;
+   
+    
+
+}
+
+img:hover{
+
+        width:105%;
+         
+}
+
+.title{
+    width: 100%;
+    height: 30px;
+    margin-top: -35px;
+    margin-left: -10px;
+    text-align: right;
+    text-shadow: 2px 2px 5px black;
+    z-index: 10;
+    font-size: 22px;
+    color:rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0.295);
+   
+}
