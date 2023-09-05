@@ -37,7 +37,7 @@ const BudgetForm = () => {
     // };
 
     const response = await fetch(
-      "http://172.31.187.6:8080/budgets/create-budget",
+      "http://172.31.189.100:8080/budgets/create-budget",
       {
         method: "POST",
         body: JSON.stringify(userInput),

@@ -5,7 +5,7 @@ import styles from "./CreateBudget.module.css";
 import BudgetForm from "./BudgetForm";
 
 const submit = (event) => {
-  // "http://172.31.187.6:8080/budgets/create-budget"
+  // "http://172.31.189.100:8080/budgets/create-budget"
   console.log(event.target);
 };
 
