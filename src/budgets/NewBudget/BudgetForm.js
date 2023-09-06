@@ -47,7 +47,11 @@ const BudgetForm = () => {
           "Content-Type": "application/json",
         },
       }
-    );
+    ).catch((err) => {
+      alert("La conexion fallo!")
+      console.log("Unable to save - " + err);
+      return;
+    });
 
     const responseData = await response.json();
     console.log(responseData);
@@ -70,7 +74,7 @@ const BudgetForm = () => {
         <div className={styles["new-budget__control"]}>
           <label>Decripción</label>
           <Input
-          inputType ="textarea"
+            inputType="textarea"
             value={userInput.description}
             type="text"
             onChange={descriptionChangeHandler}

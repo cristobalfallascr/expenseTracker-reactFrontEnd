@@ -1,0 +1,33 @@
+.card {
+    border: none;
+    padding: 1rem 0.5rem;
+    border-radius: 10px;
+    width: 60%;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.055);
+}
+
+
+.card h3 {
+    font-size: 2rem;
+    color: #fff;
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+
+
+.light-green {
+    background-color: #8cd867;
+}
+
+.orange {
+    background-color: #ed7d3a;
+}
+
+.red {
+    background-color: #ef2d56;
+}
