@@ -1,32 +1,23 @@
-.button {
-    margin: 0;
-    position: relaive;
+.button{
+  font:inherit;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px;
+  margin-bottom: 20px;
+  height: 3rem;
+  border-radius: 10px;
+  border:2px solid rgb(0, 131, 70);
+  outline:none;
+  cursor:pointer;
+  background-color: rgba(27, 189, 54, 0.212);
+  transition: border 0.07s ease, background 1s 
+}
 
-    width: 30px;
-    height: 20px;
-    
-    padding: 5px;
-    border: 1px solid #008b68;
-    border-radius: 100%;
-    color: white;
-    background: #008b68;
-    
-    cursor: pointer;
-  }
-  
-  .button:focus {
-    outline: none;
-  }
-  
-  .button:hover,
-  .button:active {
-    background: #3bac0e;
-    border-color: #d8d8d8;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
-  }
-  
-  @media (min-width: 768px) {
-    .button {
-      width: auto;
-    }
-  }
+.button:hover{
+  border: 2px solid rgba(191, 253, 189, 0.459);
+  background: #0aaa12ee;
+}
+
+.button__Inactive{
+  background: #2a2b2a;
+}

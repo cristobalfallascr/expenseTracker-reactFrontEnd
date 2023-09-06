@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 
 import styles from "./BudgetForm.module.css";
-import { resolvePath } from "react-router-dom";
+
+import Button from "../../shared/Components/Button";
+import Input from "../../shared/Components/Input";
 
 const BudgetForm = () => {
   const [userInput, setUserInput] = useState({
@@ -58,30 +60,36 @@ const BudgetForm = () => {
       <div className={styles["new-budget__controls"]}>
         <div className={styles["new-budget__control"]}>
           <label>Nombre</label>
-          <input
+          <Input
+            inputType="input"
             type="text"
             value={userInput.title}
             onChange={titleChangeHandler}
-          ></input>
+          ></Input>
         </div>
         <div className={styles["new-budget__control"]}>
           <label>Decripción</label>
-          <textarea
+          <Input
+          inputType ="textarea"
             value={userInput.description}
             type="text"
             onChange={descriptionChangeHandler}
-          ></textarea>
+          ></Input>
         </div>
         <div className={styles["new-budget__control"]}>
           <label>Presupuesto ₡</label>
-          <input
+          <Input
+            inputType="input"
             value={userInput.budgetTotalAmount}
             onChange={amountChangeHandler}
             type="text"
-          ></input>
+          ></Input>
         </div>
+
         <div className={styles["new-budget__actions"]}>
-          <button type="submit">Comenzar</button>
+          <Button className="" type="submit" onClick="">
+            Comenzar
+          </Button>
         </div>
       </div>
     </form>

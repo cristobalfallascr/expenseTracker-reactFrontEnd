@@ -13,7 +13,14 @@
     
 }
 
-.new-budget__control input, textarea{
+.new-budget__actions{
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    
+}
+
+/* .new-budget__control input, textarea{
     font:inherit;
     margin-left: 5px;
     margin-bottom: 20px;
@@ -52,29 +59,6 @@ textarea{
     align-items: center;
     text-align: center;
     
-}
+} */
 
 
-.new-budget__actions button{
-    font:inherit;
-    font-size: 22px;
-    color: #fff;
-    padding: 10px;
-    margin-bottom: 20px;
-    height: 3rem;
-    border-radius: 10px;
-    border:2px solid rgb(0, 131, 70);
-    outline:none;
-    cursor:pointer;
-    background-color: rgba(27, 189, 54, 0.212);
-    transition: border 0.07s ease, background 1s 
-}
-
-.new-budget__actions button:hover{
-    border: 2px solid rgba(191, 253, 189, 0.459);
-    background: #0aaa12ee;
-}
-
-.button__Inactive{
-    background: #2a2b2a;
-}
