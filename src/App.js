@@ -1,5 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, json } from "react-router-dom";
 import { redirect as Redirect } from "react-router-dom";
 import {} from "react-router-dom";
 
@@ -9,6 +9,7 @@ import HomeContainer from "./budgets/components/HomeContainer";
 import HomeItem from "./budgets/components/HomeItem";
 import Users from "./user/pages/Users";
 
+import MyBudget from "./budgets/pages/MyBudget";
 import CreateBudget from "./budgets/NewBudget/CreateBudget";
 const SAMPLEEXPENSE = [
   {
@@ -69,11 +70,13 @@ const SAMPLEEXPENSE = [
 ];
 
 const App = () => {
+
   return (
     <div>
       {/* <ExpenseList list={SAMPLEEXPENSE}></ExpenseList> */}
       {/* <HomeContainer>       </HomeContainer> */}
-      <CreateBudget></CreateBudget>
+      {/* <CreateBudget></CreateBudget> */}
+      <MyBudget></MyBudget>
     </div>
   );
 };
