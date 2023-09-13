@@ -16,3 +16,23 @@
   .col-10 {width: 83.33%;}
   .col-11 {width: 91.66%;}
   .col-12 {width: 100%;}
+
+  .budget-container{
+    background-color: #2fbf702c;
+    
+  }
+
+  .budget-title{
+    background-color: #2FBF71;
+    margin:auto;
+    color: white
+  }
+
+  .budget-actions{
+    text-align: center;
+    margin: auto;
+    border: 1px solid red;
+    display: block;
+    
+    width:90%
+  }

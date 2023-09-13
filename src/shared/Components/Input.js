@@ -10,6 +10,7 @@ const Input = (props) => {
           className={styles.input}
           type={props.type}
           value={props.value}
+          placeholder={props.placeholder}
           onChange={props.onChange}
         >
           {props.children}
