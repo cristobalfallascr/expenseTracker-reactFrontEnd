@@ -1,105 +1,130 @@
-.expense-item {
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid rgb(18, 119, 40);
-    border-radius: 5px;
-    background-color: #FFF;
-    margin: 5px;
-    padding: 2px;
-    display: block;
-    width: auto;
-    cursor: pointer;
-
-
-}
-
-.expense-item-test{
-    background-color: red;
-}
-
-.expense-item-title{
-   
-    display: flex;
-    justify-content: center;
-    
-}
-
-.expense-item-title h1 {
-    color: rgb(18, 119, 40);
-    margin: 0;
-    text-align: left;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: color 0.5s;
-}
-
-
-.expense-item-icon{
-    margin: auto;
-    margin: 1px;
-    color: gray;
-    font-size: 14px;
-    transition: transform 0.5s ease-out;
-    
-}
-
-.expense-item-detail {
-    display: none;
-    transition: display 2s ease  
-}
-
-.expense-item.expanded .expense-item-icon {
-    transform: rotate(90deg);
-    
-
-}
-
-.expense-item.expanded .expense-item-detail{
-    display: block;
-    animation: fadeIn 1s ease-out 0.5 forwards ;
-}
-
-
-
-
-
-
-
-
-@keyframes fadeIn {
-    0% {
-        transform: translateY(-20px);
-        display: none;
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(2px);
-        display: block;
-        opacity: 1;
-    }
-
-}
-
-
-@media (max-width: 768px) {
-
-    .expenseItem {
-        display: flex;
-        flex-wrap: wrap;
-        border: 1px solid rgb(18, 119, 40);
+@media (min-width: 200px) {
+    .expense-item {
+        display: inline-block;
+        background-color: rgb(22, 155, 44);
         border-radius: 5px;
-        background-color: #FFF;
-        margin: 5px;
-        padding: 2px;
-        display: block;
-        width: 50%;
-    
-    
+        /* border: 1px solid rgb(22, 155, 44); */
+        margin-bottom: 20px;
+
+        width: 30%;
+        height: 110px;
+        cursor: pointer;
+
+
+    }
+
+
+
+
+    .expense-item-title {
+
+        display: flex;
+        justify-content: space-evenly;
+
     }
 
     .title {
-        font-size: 1rem;
+        color: rgb(255, 255, 255);
+        font-size: 14px;
+        cursor: pointer;
+
+
+    }
+
+    .expense-item-row {
+        display: flex;
+        justify-content: space-around;
+        margin-top: -25px;
+    }
+
+    .expense-item-row p {
+        padding-top: 5px;
+        color: white;
+    }
+
+    .expense-item-initial {
+
+        color: white;
+    }
+
+    .D {
+        background-color: greenyellow;
+        border-radius: 100%;
+        padding: 5px 10px;
+        margin-right: 10px;
+    }
+
+    .C {
+        background-color: rgb(255, 217, 47);
+        border-radius: 100%;
+        padding: 5px 10px;
+
+    }
+
+    .P {
+        background-color: rgb(47, 161, 255);
+        border-radius: 100%;
+        padding: 5px 10px;
+
+    }
+
+    .R {
+        background-color: rgb(85, 47, 255);
+        border-radius: 100%;
+        padding: 5px 10px;
+
+    }
+
+
+    .expense-expand {
+
+        display: flex;
+        justify-content: center;
+        margin-top: -15px;
+    }
+
+
+    .expense-item-details {
+
+        margin: auto;
+        /* display: none; */
+        background-color: rgb(22, 155, 44);
+        border-radius: 5px;
+        z-index: 1;
+
+
+    }
+
+    .expanded {
+        position: relative;
+        display: block;
+        z-index: 1;
+    }
+
+    .expense-item-detail-row {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0;
+    }
+
+    .expense-item-detail-row p {
+        padding-top: 5px;
+        font-size: 14px;
+        color: white;
+    }
+
+    .expense-item-button {
+        background: none;
+        border: none;
+        outline: none;
+        color: white;
+        cursor: pointer
+    }
+
+    .expense-item-actions {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
     }
 
 }

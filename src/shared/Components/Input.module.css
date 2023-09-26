@@ -1,34 +1,41 @@
-.input, textarea{
-    font:inherit;
+.input,
+textarea {
+    text-align: center;
+    font: inherit;
     margin-left: 5px;
     margin-bottom: 20px;
     padding: 1px 15px;
-    font-size: 20px;
+    font-size: 18px;
     color: #fff;
     background: #ffffff5e;
-    border:none;
+    border: none;
     border-radius: 10px;
-    width: 40%;
+    width: 60%;
     height: 3rem;
     outline: none;
     transition: border 0.07s ease, background 1s;
-    
+
 
 }
+.input__Invalid {
 
-textarea{
+    background: #fa69695e;
+}
+
+textarea {
     height: 5rem;
-    width:90%;
+    width: 90%;
     padding-top: 10px;
     resize: none;
 }
 
 
 
-.input:focus , textarea:focus{
-   
+.input:focus,
+textarea:focus {
+
     border: 3px solid rgba(255, 255, 255, 0.493);
     background: #ffffff1a;
-    
+
 }
 

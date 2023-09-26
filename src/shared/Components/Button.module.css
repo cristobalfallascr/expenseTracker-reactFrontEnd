@@ -13,11 +13,24 @@
   transition: border 0.07s ease, background 1s 
 }
 
+
 .button:hover{
   border: 2px solid rgba(191, 253, 189, 0.459);
   background: #2fbf71;
+  color: #fff;
+  border:2px solid rgb(0, 131, 70);
 }
 
-.button__Inactive{
-  background: #2a2b2a;
+.button__Invalid{
+  background: #2a2b2ab6;
+  border:2px solid rgba(54, 8, 10, 0.534);
+  color: #929090;
+  cursor:not-allowed
+}
+
+.button__Invalid:hover{
+  border: 2px solid rgba(191, 253, 189, 0.459);
+  background: #471c20b6;
+  color: #929090;
+  border:2px solid rgba(54, 8, 10, 0.534);
 }

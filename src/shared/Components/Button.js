@@ -1,11 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import styles from './Button.module.css';
+import styles from "./Button.module.css";
 
-
-const Button = props => {
+const Button = (props) => {
   return (
-    <button type={props.type} className={styles.button} onClick={props.onClick}>
+    <button
+      type={props.type}
+      // className={styles[("button", "button__Invalid")]}
+      className={`${styles["button"]} ${
+        styles[props.buttonIsEnabled ? "button__Invalid" : ""]
+      }`}
+      onClick={props.onClick}
+      disabled={props.buttonStatus}
+    >
       {props.children}
     </button>
   );

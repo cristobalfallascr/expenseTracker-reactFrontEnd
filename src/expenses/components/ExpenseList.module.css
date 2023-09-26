@@ -1,4 +1,21 @@
-.expense-container{
-    display: flex;
+.expense-section {
     
+}
+
+.expense-section h1 {
+
+}
+
+.expense-section_Title{
+    text-align: center;
+    
+    color: #2FBF71;
+}
+
+.expense-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+
 }
