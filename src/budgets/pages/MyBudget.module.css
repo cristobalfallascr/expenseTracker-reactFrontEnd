@@ -52,7 +52,9 @@
 
   .budget-details__Empty {
 
-    border: 1px solid #2FBF71;
+    display: flex;
+    justify-content: center;
+    border: none;
     margin: auto;
     margin-top: 50px;
     width: 50%;

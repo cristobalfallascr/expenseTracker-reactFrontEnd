@@ -39,7 +39,7 @@ const BudgetForm = () => {
     // };
 
     const response = await fetch(
-      "http://172.31.189.100:8080/budgets/create-budget",
+      "http://172.21.98.69:8080/budgets/create-budget",
       {
         method: "POST",
         body: JSON.stringify(userInput),
@@ -56,7 +56,7 @@ const BudgetForm = () => {
     const responseData = await response.json();
     console.log(responseData);
     setUserInput({ title: "", description: "", budgetTotalAmount: "" });
-    alert(responseData.message);
+    
   };
 
   return (
@@ -91,7 +91,7 @@ const BudgetForm = () => {
         </div>
 
         <div className={styles["new-budget__actions"]}>
-          <Button className="" type="submit" onClick="">
+          <Button className="" type="submit" >
             Comenzar
           </Button>
         </div>
