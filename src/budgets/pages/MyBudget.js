@@ -77,7 +77,7 @@ const MyBudget = (props) => {
       localStorage.setItem("budgetCode", jsonData.budget.budgetCode);
     } catch (error) {
       if (error.message === "Failed to fetch") {
-        setError({ message: "No se pudo conectar con el servidor" });
+        setError({ message: "No se pudo conectar con el servidor!" });
       } else {
         setError(error);
       }
