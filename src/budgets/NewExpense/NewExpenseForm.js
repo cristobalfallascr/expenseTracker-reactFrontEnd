@@ -37,7 +37,7 @@ const NewExpenseForm = (props) => {
     const expenseData = { ...userInput, budgetId: props.budgetId };
 
     const response = await fetch(
-      "http://172.21.98.69:8080/budgets/add-expense",
+      "https://budgetbe.azurewebsites.net/budgets/add-expense",
       {
         method: "POST",
         body: JSON.stringify(expenseData),

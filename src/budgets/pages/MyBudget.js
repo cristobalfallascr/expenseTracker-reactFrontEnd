@@ -61,7 +61,7 @@ const MyBudget = (props) => {
 
     try {
       const response = await fetch(
-        "http://172.21.98.69:8080/budgets/my-budget/" + bc
+        "https://budgetbe.azurewebsites.net/budgets/my-budget/" + bc
       );
 
       const jsonData = await response.json();
