@@ -3,15 +3,24 @@ import React, { Fragment, useState } from "react";
 import { motion } from "framer-motion/dist/framer-motion";
 import { AnimatePresence } from "framer-motion/dist/framer-motion";
 import styles from "./ExpenseItem.module.css";
-
-
+import TransactionForm from "../../budgets/NewTransaction/NewTransactionForm";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
-import ViewListIcon from '@mui/icons-material/ViewList';
+import ViewListIcon from "@mui/icons-material/ViewList";
+
 const ExpenseItem = (props) => {
-  // console.log(styles);
+ 
   const [display, setDisplay] = useState("none");
   const [isExpanded, setIsExpanded] = useState(false);
+  const [transctionFormShow, setTransactioFormShow] = useState(false);
+
+  const transctionFormShowHandler = () => {
+    setTransactioFormShow(true);
+  };
+
+  const hideFormHandler = () => {
+    setTransactioFormShow(false);
+  };
 
   const clickHandler = (event) => {
     if (!isExpanded) {
@@ -38,10 +47,19 @@ const ExpenseItem = (props) => {
   return (
     <Fragment>
       <motion.div
-      onMouseLeave={leaveHandler} 
+        onMouseLeave={leaveHandler}
         className={styles["expense-item"]}
-        whileTap={{ scale: 1.1 }}
-        whileHover={{ scale: 1.1, bordeColor: "#fff" }}
+        animate={{
+          width: isExpanded ? "32%" : "30%",
+          border: isExpanded ? "1px solid #a2ffb2" : "none",
+          backgroundColor: props.item.availableAmount === 0 &&"#363537" ,
+        }}
+        transition={{
+          stiffnes: 100,
+          bounce: 100,
+        }}
+        // whileTap={{ scale: 1.1 }}
+        whileHover={{ border: "1px  solid #fff" }}
       >
         <div className={styles["expense-item-title"]}>
           <h1 className={styles.title}>{props.item.title}</h1>
@@ -80,6 +98,7 @@ const ExpenseItem = (props) => {
               className={styles["expense-item-button"]}
               whileTap={{ scale: 1.1 }}
               whileHover={{ scale: 1.1, color: "rgb(255, 217, 47)" }}
+              onClick={transctionFormShowHandler}
             >
               <AddBusinessIcon />
             </motion.button>
@@ -90,8 +109,14 @@ const ExpenseItem = (props) => {
             >
               <ViewListIcon />
             </motion.button>
-            
           </div>
+          {transctionFormShow&& <TransactionForm
+            type={props.item.title}
+            budgetId={props.item.budgetId}
+            expenseId={props.item._id}
+            hideFormHandler={hideFormHandler}
+            submittedExpenseHandler={props.submittedExpenseHandler}
+          ></TransactionForm>}
         </motion.div>
 
         <div className={styles["expense-expand"]}>

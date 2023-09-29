@@ -1,21 +1,25 @@
-.expense-section {
-    
-}
+.expense-section {}
 
-.expense-section h1 {
+.expense-section h1 {}
 
-}
-
-.expense-section_Title{
+.expense-section_Title {
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
     text-align: center;
+    color: #ed7d3a;
+    width:90%;
     
-    color: #2FBF71;
 }
 
 .expense-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+   
+    max-height: 420px;
+    overflow: scroll;
+
 
 
 }

@@ -11,6 +11,8 @@ import Button from "../../shared/Components/Button";
 import Modal from "../../shared/Components/Modal";
 import CreateBudget from "../NewBudget/CreateBudget";
 
+import Buds from "@mui/icons-material/Savings";
+
 const MyBudget = (props) => {
   const [budgetCode, setBudgetCode] = useState("");
   const [isloading, setIsLoading] = useState(false);
@@ -33,14 +35,15 @@ const MyBudget = (props) => {
       fetchBudget(budgetCode);
       if (submittedExpense) {
         fetchBudget(budgetCode);
+        setSubmittedExpense(false);
       }
     }
-  }, [submittedExpense,budgetCode]);
+  }, [submittedExpense, budgetCode]);
 
   const showFormHandler = () => {
     setExpeneseFormShow(true);
   };
-  console.log(expenseFormShow);
+  
   const hideFormHandler = () => {
     setExpeneseFormShow(false);
   };
@@ -104,6 +107,12 @@ const MyBudget = (props) => {
       <section className={styles["budget-container"]}>
         {!budgetData && (
           <div className={styles["budget-actions"]}>
+            <div className={styles["app-name"]}>
+              <h1>
+                <Buds></Buds> Buds
+              </h1>
+            </div>
+
             <form onSubmit={formSubmitHandler}>
               <Input
                 name="budgetCode"
@@ -143,6 +152,11 @@ const MyBudget = (props) => {
         {!isloading && budgetData && isLoaded && (
           <div>
             <div className={styles["budget-title"]}>
+              <div className={styles["app-name"]}>
+                <h1>
+                  <Buds></Buds> Buds
+                </h1>
+              </div>
               <h1>{budgetData.title}</h1>
             </div>
             <div className={styles["budget-details"]}>
@@ -154,7 +168,7 @@ const MyBudget = (props) => {
             </div>
             <div>
               {budgetData.expenseCount > 0 && (
-                <ExpenseList list={budgetData.expenseList} />
+                <ExpenseList list={budgetData.expenseList} submittedExpenseHandler={submittedExpenseHandler} />
               )}
 
               <div className={styles["budget-details__Empty"]}>
@@ -164,9 +178,13 @@ const MyBudget = (props) => {
                     para comenzar!
                   </p>
                 )}
-                <Button onClick={showFormHandler} alt="agregar">
-                  <AddExpenseIcon />{" "}
-                </Button>
+                <div className={styles['fixed-actions']}>
+                  {" "}
+                  <Button onClick={showFormHandler} alt="agregar">
+                    <AddExpenseIcon />{" "}
+                  </Button>
+                </div>
+
                 {expenseFormShow && (
                   <ExpenseForm
                     budgetId={budgetData._id}

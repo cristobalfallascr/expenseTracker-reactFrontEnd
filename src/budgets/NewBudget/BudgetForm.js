@@ -39,7 +39,7 @@ const BudgetForm = () => {
     // };
 
     const response = await fetch(
-      "http://172.21.98.69:8080/budgets/create-budget",
+      "https://budgetbe.azurewebsites.net/budgets/create-budget",
       {
         method: "POST",
         body: JSON.stringify(userInput),
