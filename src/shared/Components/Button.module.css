@@ -23,7 +23,7 @@
 
 .button__Invalid{
   background: #2a2b2ab6;
-  border:2px solid rgba(54, 8, 10, 0.534);
+  border:2px solid rgba(61, 61, 61, 0.534);
   color: #929090;
   cursor:not-allowed
 }

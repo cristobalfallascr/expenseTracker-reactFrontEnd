@@ -43,13 +43,13 @@ const MyBudget = (props) => {
   const showFormHandler = () => {
     setExpeneseFormShow(true);
   };
-  
+
   const hideFormHandler = () => {
     setExpeneseFormShow(false);
   };
 
   const handleInputChange = (event) => {
-    setBudgetCode(event.target.value);
+    setBudgetCode(event.target.value.toLowerCase());
     if (budgetCode.length >= 4) {
       setInputIsValid(true);
     }
@@ -64,7 +64,12 @@ const MyBudget = (props) => {
 
     try {
       const response = await fetch(
-        "https://budgetbe.azurewebsites.net/budgets/my-budget/" + bc
+        "http://172.21.98.69:8080/budgets/my-budget/" + bc,
+        {
+          headers: {
+            Authorization: "Bearer " + props.token,
+          },
+        }
       );
 
       const jsonData = await response.json();
@@ -73,11 +78,9 @@ const MyBudget = (props) => {
           "No encontramos un presupuesto con el código ingresado. Intenta con uno distinto."
         );
       }
-
+      console.log(jsonData);
       setBudgetData(jsonData.budget);
-      localStorage.setItem("isBudgetloaded", "1");
-
-      localStorage.setItem("budgetCode", jsonData.budget.budgetCode);
+      localStorage.setItem("token", jsonData.token);
     } catch (error) {
       if (error.message === "Failed to fetch") {
         setError({ message: "No se pudo conectar con el servidor!" });
@@ -168,7 +171,10 @@ const MyBudget = (props) => {
             </div>
             <div>
               {budgetData.expenseCount > 0 && (
-                <ExpenseList list={budgetData.expenseList} submittedExpenseHandler={submittedExpenseHandler} />
+                <ExpenseList
+                  list={budgetData.expenseList}
+                  submittedExpenseHandler={submittedExpenseHandler}
+                />
               )}
 
               <div className={styles["budget-details__Empty"]}>
@@ -178,7 +184,7 @@ const MyBudget = (props) => {
                     para comenzar!
                   </p>
                 )}
-                <div className={styles['fixed-actions']}>
+                <div className={styles["fixed-actions"]}>
                   {" "}
                   <Button onClick={showFormHandler} alt="agregar">
                     <AddExpenseIcon />{" "}

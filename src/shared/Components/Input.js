@@ -10,7 +10,7 @@ const Input = (props) => {
         <input
           name={props.name}
           className={`${styles["input"]} ${
-            styles[props.formValidity ? "input__Invalid" : ""]
+            styles[!props.formValidity ? "input__Invalid" : ""]
           }`}
           // className={styles[inputClassNames]}
           type={props.type}

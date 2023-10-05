@@ -7,7 +7,7 @@ import Button from "../../shared/Components/Button";
 import styles from "./NewTransactionForm.module.css";
 
 const NewTransactionForm = (props) => {
-  console.log(props)
+  console.log(props);
   const [userInput, setUserInput] = useState({
     title: "",
     type: props.type,
@@ -36,7 +36,7 @@ const NewTransactionForm = (props) => {
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(userInput)
+    console.log(userInput);
     const transactionData = { ...userInput };
 
     const response = await fetch(
@@ -47,13 +47,12 @@ const NewTransactionForm = (props) => {
         headers: {
           "Content-Type": "application/json",
         },
-      }
-    );
+      });
     const responseData = await response.json();
 
     setUserInput({ name: "", type: "", usedAmount: "" });
     props.hideFormHandler();
-    props.submittedExpenseHandler()
+    props.submittedExpenseHandler();
   };
 
   return (

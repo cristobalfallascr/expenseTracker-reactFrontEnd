@@ -1,0 +1,43 @@
+.form-container{
+    width: 100%;
+    margin: auto;
+    
+}
+
+
+.title {
+    color: white;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+
+    
+
+}
+
+
+.form-control{
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+
+
+
+.form-title h1{
+    
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.link{
+    color: #ed7d3a;
+    cursor: pointer;
+}
+
+.warning{
+    color:#fa69695e;
+    margin-top: -15px;
+}

@@ -8,7 +8,7 @@ const Button = (props) => {
       type={props.type}
       // className={styles[("button", "button__Invalid")]}
       className={`${styles["button"]} ${
-        styles[props.buttonIsEnabled ? "button__Invalid" : ""]
+        styles[props.formValidity ? "" : "button__Invalid"]
       }`}
       onClick={props.onClick}
       disabled={props.buttonStatus}
