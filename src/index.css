@@ -41,3 +41,10 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+main{
+  margin: 2rem auto;
+  text-align: center;
+  color:white
+  
+}

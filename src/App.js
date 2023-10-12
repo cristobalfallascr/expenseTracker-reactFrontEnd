@@ -1,41 +1,59 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, json } from "react-router-dom";
-import { redirect as Redirect } from "react-router-dom";
-import {} from "react-router-dom";
+import {
+  createBrowserRouter as Router,
+  RouterProvider,
+} from "react-router-dom";
 
-import ExpenseList from "./expenses/components/ExpenseList";
-import ExpenseItem from "./expenses/components/ExpenseItem";
-import HomeContainer from "./budgets/components/HomeContainer";
-import HomeItem from "./budgets/components/HomeItem";
-import Users from "./user/pages/Users";
+import NewExpense, {
+  action as newExpenseAction,
+} from "./components/Expense/NewExpense";
 
-import MyBudget from "./budgets/pages/MyBudget";
-import CreateBudget from "./budgets/NewBudget/CreateBudget";
-import Access from "./budgets/pages/Access";
+import NewTransaction, {action as newTransactionAction} from "./components/Transaction/NewTransaction";
+import Budget, { budgetLoader } from "./pages/BudgetPage";
+import HomePage from "./pages/HomepPage";
+import BasicRootPage from "./pages/BasicRootPage";
+import ErrorPage from "./pages/ErrorPage";
+import Auth, { action as authAction } from "./pages/AuthPage";
+import User, { userLoader } from "./pages/UserPage";
+
+const router = Router([
+  {
+    path: "/",
+    element: <BasicRootPage />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: "", index: true, element: <HomePage /> },
+      { path: "auth", element: <Auth />, action: authAction },
+    ],
+  },
+
+  {
+    path: "/user",
+    element: <BasicRootPage />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: ":userId", element: <User />, loader: userLoader },
+      {
+        path: ":userId/budgets/:budgetId",
+        element: <Budget />,
+        loader: budgetLoader,
+      },
+      {
+        path: ":userId/budgets/:budgetId/new",
+        element: <NewExpense />,
+        action: newExpenseAction,
+      },
+      {
+        path: ":userId/budgets/:budgetId/add-transaction",
+        element: <NewTransaction />,
+        action: newTransactionAction,
+      },
+    ],
+  },
+]);
 
 const App = () => {
-  const [userIsLoggedIn, setUserIsLoggedIn] = useState(false);
-
-  //UseEffect in scenrio with no dependecies
-  useEffect(() => {
-    const storeLoginData = localStorage.getItem("isLoggedIn");
-    if (storeLoginData === "1") {
-      setUserIsLoggedIn(true);
-    }
-  }, []);
-
-  const loginHandler = (token) => {
-    localStorage.setItem("token", token);
-    setUserIsLoggedIn(true);
-  };
-  return (
-    <div>
-      {/* <ExpenseList list={SAMPLEEXPENSE}></ExpenseList> */}
-      {/* <HomeContainer>       </HomeContainer> */}
-      <Access loginHandler={loginHandler} ></Access>
-      <MyBudget token={localStorage.getItem("token")}></MyBudget>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

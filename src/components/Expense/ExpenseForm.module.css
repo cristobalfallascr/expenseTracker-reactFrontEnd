@@ -1,0 +1,44 @@
+.form {
+    width: 100%;
+    margin: auto
+
+}
+
+.label-title {
+    color: white;
+    margin: auto;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    
+
+}
+
+
+.form-control{
+    margin: auto;
+    text-align: center;
+}
+
+.form-title{
+    
+    margin: 0;
+    text-align: center;
+    background-color: none;
+
+    width: 100%;
+    height:60px;
+    
+
+    border-radius: 10px 10px 0 0;
+}
+
+.form-title h1{
+    color: #2FBF71;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.warning{
+    color:#fa69695e;
+    margin-top: -15px;
+}

@@ -1,0 +1,40 @@
+.container{
+   
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.app-name h1{
+    font-size: 2rem;
+    color: #2FBF71;
+    text-align: center;
+  }
+
+  .app-name p{
+    font-size: 1rem;
+    color: #fff;
+    text-align: center;
+  }
+
+  .form__actions{
+    margin: auto;
+    margin-top:60px;
+    margin-bottom: 30px;
+    align-items: center;
+    text-align: center;
+    
+}
+
+a{
+    text-decoration: none;
+    color: #2FBF71;
+    font-size: 1rem;
+    
+}
+
+ a:hover,
+ a.active {
+    
+    color: #ed7d3a;
+}

@@ -1,0 +1,145 @@
+@media screen and (min-width: 200px) {
+
+  .budget-container {
+    padding: 20px 0 20px 0;
+    background-color: #01262b00;
+    min-height: 100%;
+    height: 100%;
+  }
+
+  .budget-summary {
+    display: flex;
+    background-color: #ed7d3a;
+    margin: 0 10px;
+    border-radius: 10px;
+  }
+
+  .budget-title {
+    margin: 0 5px;
+    width: 40%;
+    height: 72px;
+    border-radius: 10px;
+  
+    text-align: center;
+  }
+
+  .budget-title h1 {
+    margin: 10px;
+    color: #FFF;
+    font-size: 22px;
+  }
+
+  .budget-detail__amounts {
+    margin: 0;
+    min-height: auto;
+    width: 40%;
+  }
+
+  .budget-detail__amounts p {
+    margin: 0 auto ;
+   
+    font-size: 14px;
+    width: 70%;
+  }
+
+  .budget-detail__amounts h3 {
+
+    margin: 0;
+    margin: auto;
+    width: 70%;
+    color: white;
+    text-align: center;
+    background-color: #001616;
+    border-radius: 10px;
+    font-size: 14px;
+
+  }
+.budget-detail__records{
+  
+  margin: 0;
+  min-height: auto;
+  width: 20%;
+}
+
+.budget-detail__records p{
+  margin: 15px 0 0 0;
+}
+.budget-detail__records h3{
+  margin: 0;
+  margin: auto;
+  width: 70%;
+  color: #001616;
+  text-align: center;
+  background-color: none;
+  border-radius: 10px;
+  font-size: 22px;
+}
+
+
+  .budget-actions {
+    margin: auto;
+
+    padding: 100px 0 100px 0;
+
+    text-align: center;
+
+
+    display: block;
+
+    width: 90%
+  }
+
+  .budget-actions {
+    color: white;
+  }
+
+  .budget-actions span {
+    color: #ed7d3a;
+    text-decoration: underline;
+
+  }
+
+  .budget-details__Empty {
+
+    display: flex;
+    justify-content: center;
+    border: none;
+    margin: 10px;
+   
+  
+    color: white;
+    text-align: center;
+    padding: 3px;
+    background-color: #ffffff34;
+    
+    border-radius: 10px;
+
+    font-size: 14px;
+
+
+
+
+  }
+
+  .budget-details__Empty p {
+    margin: auto;
+    padding: 5px;
+    text-align: center;
+
+  }
+
+  .error-text {
+    color: #ef2d56;
+    margin-top: -15px;
+  }
+}
+
+.fixed-actions {
+  /* position: absolute;
+ 
+  width: 100%;
+  height: fit-content;
+  background-color: #363537;
+  margin-top: -30px; */
+
+}
