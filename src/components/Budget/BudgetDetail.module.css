@@ -19,7 +19,7 @@
   }
 
   .budget-title {
-    margin: 5px;
+   
     width: 100%;
     height: auto;
     border-radius: 10px;
@@ -28,10 +28,17 @@
   }
 
   .budget-title h1 {
-    margin: 10px;
+    margin: 10px 0 0 0;
     color: #FFF;
     font-size: 22px;
   }
+
+  .budget-title p {
+    margin: 0;
+    color: #FFF;
+   
+  }
+
 
   .amountContainer {
     display: flex;
@@ -148,7 +155,7 @@
 }
 
 .actions-container p {
-  margin: 1px
+  margin: 5px 0
 }
 
 .fixed-actions {
@@ -174,4 +181,7 @@
 
 .expand-actions {
   cursor: pointer;
+  width:auto;
+  height: auto;
+  margin:0
 }

@@ -44,26 +44,41 @@ const BudgetDetail = (props) => {
     <Fragment>
       <section className={styles["budget-container"]}>
         <div className={styles["budget-summary"]}>
-          <div className={styles["budget-title"]}>
-            <h1>{budgetData.title}</h1>
-          </div>
           <div className={styles.amountContainer}>
+            <div className={styles["budget-title"]}>
+              <h1>{budgetData.title}</h1>
+              <p>
+                Has asignado ₡ {budgetData.budgetAmountAssigned} en distintos
+                rubros.{" "}
+              </p>
+            </div>
             <div className={styles["budget-detail__amounts"]}>
               <p>Inicial</p>
               <h3>₡{budgetData.budgetTotalAmount}</h3>
-              <p>Sin asignar</p>
-              <h3>₡{budgetData.budgetAmountUnassigned}</h3>
-            </div>
-            <div className={styles["budget-detail__amounts"]}>
               <p>Consumido</p>
               <h3>₡{budgetData.budgetAmountUsed}</h3>
-              <p>Disponible</p>
-              <h3>₡{budgetData.budgetAmountAvailable}</h3>
             </div>
           </div>
+
+          {budgetData.budgetTotalAmount < budgetData.budgetAmountAssigned && (
+            <p style={{ color: "#ef2d56" }}>
+              Te has sobrepasado por ₡
+              {budgetData.budgetAmountAssigned - budgetData.budgetTotalAmount}
+            </p>
+          )}
         </div>
         <div className={styles["actions-container"]}>
-          <p>Accciones</p>
+          <p>Acciones</p>
+          <motion.h1
+            className={styles["expand-actions"]}
+            onClick={clickHandler}
+            animate={{
+              rotate: isExpanded ? 180 : 0,
+              color: isExpanded ? "#2FBF71" : "",
+            }}
+          >
+            <ExpandMoreIcon />
+          </motion.h1>
 
           <motion.div
             className={styles["fixed-actions"]}
@@ -96,20 +111,6 @@ const BudgetDetail = (props) => {
                 <TuneIcon />{" "}
               </Button>
             </div>
-          </motion.div>
-          <motion.div
-            animate={{
-              rotate: isExpanded ? 180 : 0,
-              color: isExpanded ? "#2FBF71" : "",
-            }}
-            transition={{
-              stiffnes: 100,
-              bounce: 100,
-            }}
-            className={styles["expand-actions"]}
-            onClick={clickHandler}
-          >
-            <ExpandMoreIcon />
           </motion.div>
         </div>
 
