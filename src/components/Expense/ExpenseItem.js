@@ -169,7 +169,7 @@ const ExpenseItem = (props) => {
           >
             <ExpandMoreIcon />
           </motion.h1>
-          {props.item.type === "Servicios Publicos" &&
+          {props.item.type.includes('Servicios')  &&
             props.item.availableAmount > 0 && (
               <motion.div
                 className={styles.setpaid}
