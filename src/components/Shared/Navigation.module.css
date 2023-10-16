@@ -8,6 +8,7 @@
 .header {
     max-width: 60rem;
     margin: auto;
+   
     padding: 2rem;
     display: flex;
     justify-content: center;
@@ -16,7 +17,8 @@
 
 
 ul {
-    padding-inline-start: 0px
+    padding-inline-start: 0px;
+    margin-right: 25px;
 }
 
 li {

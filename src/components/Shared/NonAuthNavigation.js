@@ -12,6 +12,9 @@ const MainNavigation = () => {
             <Link to="/">Inicio</Link>
           </li>
           <li>
+            <Link to="/auth?mode=login">Acceder</Link>
+          </li>
+          <li>
             <Link to="/contact">Contacto</Link>
           </li>
         </ul>

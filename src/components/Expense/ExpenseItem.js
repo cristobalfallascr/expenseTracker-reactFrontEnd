@@ -1,14 +1,21 @@
 import React, { Fragment, useState } from "react";
-
+import { useParams, useSubmit } from "react-router-dom";
 import { motion } from "framer-motion/dist/framer-motion";
-import { AnimatePresence } from "framer-motion/dist/framer-motion";
+
 import styles from "./ExpenseItem.module.css";
 import TransactionForm from "../Transaction/TransactionForm";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import ViewListIcon from "@mui/icons-material/ViewList";
+import SetPaid from "@mui/icons-material/CreditScore";
+
+import { Fab } from "@mui/material";
 
 const ExpenseItem = (props) => {
+  const submit = useSubmit();
+
+  const params = useParams();
+  const newTransactionActionUrl = `/user/${params.userId}/budgets/${params.budgetId}/add-transaction`;
   const [display, setDisplay] = useState("none");
   const [isExpanded, setIsExpanded] = useState(false);
   const [transctionFormShow, setTransactioFormShow] = useState(false);
@@ -37,22 +44,36 @@ const ExpenseItem = (props) => {
     if (props.item.availableAmount === 0) {
       return "#363537";
     }
-    if (props.item.availableAmount < props.item.budgetedAmount * 0.3 && props.item.availableAmount > 0) {
+    if (
+      props.item.availableAmount < props.item.budgetedAmount * 0.3 &&
+      props.item.availableAmount > 0
+    ) {
       return "#ECA72C";
     }
-    if(props.item.availableAmount < 0 ){
-      return "#FF0035"
+    if (props.item.availableAmount < 0) {
+      return "#EF2D56";
     }
   };
 
-  ////Animations here
-  const itemVariants = {
-    initial: {
-      border: "none",
-    },
-    selected: {
-      border: "1px solid white",
-    },
+  // Function to set expense to 100%paid
+  const setPaidHandler = () => {
+    const proceed = window.confirm("Marcar este rubro como pagado?");
+    if (proceed) {
+      //submit hook allows to submit programatically instead of the Form hook
+      submit(
+        {
+          title: "Pago completo",
+          usedAmount: props.item.availableAmount,
+          expenseId: props.item._id,
+          budgetId: props.item.budgetId,
+          type: props.item.title,
+        },
+        {
+          method: "POST",
+          action: newTransactionActionUrl,
+        }
+      );
+    }
   };
 
   return (
@@ -61,8 +82,8 @@ const ExpenseItem = (props) => {
         onMouseLeave={leaveHandler}
         className={styles["expense-item"]}
         animate={{
-          width: isExpanded ? "32%" : "30%",
-          border: isExpanded ? "1px solid #a2ffb2" : "none",
+          width: isExpanded ? "50%" : "40%",
+          border: isExpanded ? "1px solid #fff" : "none",
           backgroundColor: expenseColor(),
         }}
         transition={{
@@ -91,12 +112,13 @@ const ExpenseItem = (props) => {
           }}
         >
           <div className={styles["expense-item-detail-row"]}>
-            <p className={styles[("expense-item-initial", "C")]}>C</p>
-            <p>₡ {props.item.usedAmount}</p>
-          </div>
-          <div className={styles["expense-item-detail-row"]}>
-            <p className={styles[("expense-item-initial", "P")]}>P</p>
+            <p className={styles[("expense-item-initial", "P")]}>A</p>
             <p>₡ {props.item.budgetedAmount}</p>
+          </div>
+
+          <div className={styles["expense-item-detail-row"]}>
+            <p className={styles[("expense-item-initial", "C")]}>U</p>
+            <p>₡ {props.item.usedAmount}</p>
           </div>
 
           <div className={styles["expense-item-detail-row"]}>
@@ -138,7 +160,7 @@ const ExpenseItem = (props) => {
             onClick={clickHandler}
             animate={{
               rotate: isExpanded ? 180 : 0,
-              color: isExpanded ? "#2FBF71" : "",
+              color: isExpanded ? "#fff" : "",
             }}
             transition={{
               stiffnes: 100,
@@ -147,6 +169,20 @@ const ExpenseItem = (props) => {
           >
             <ExpandMoreIcon />
           </motion.h1>
+          {props.item.type === "Servicios Publicos" &&
+            props.item.availableAmount > 0 && (
+              <motion.div
+                className={styles.setpaid}
+                animate={{
+                  display: isExpanded ? "none" : "block",
+                }}
+                onClick={setPaidHandler}
+              >
+                <Fab size="small" color="warning" type="submit">
+                  <SetPaid />
+                </Fab>
+              </motion.div>
+            )}
         </div>
       </motion.div>
     </Fragment>
@@ -154,3 +190,5 @@ const ExpenseItem = (props) => {
 };
 
 export default ExpenseItem;
+
+export async function action(params) {}

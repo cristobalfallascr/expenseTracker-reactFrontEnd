@@ -1,4 +1,17 @@
-.expense-section {}
+.expense-section {
+
+}
+
+.expense-section hr{
+    width:50%
+    
+}
+
+
+.expense-section p{
+    text-align: left;
+    margin-left: 10px;
+}
 
 .expense-section h1 {}
 
@@ -8,17 +21,21 @@
     margin-bottom: 15px;
     text-align: center;
     color: #ed7d3a;
-    width:90%;
+    width:95%;
     
 }
 
 .expense-container {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-   
+    flex-wrap: nowrap;
+    justify-content:left;
+    align-items: center;
     max-height: 420px;
     overflow: scroll;
+    
+    padding-left:15px;
+    padding-bottom: 20px;
+
 
 
 

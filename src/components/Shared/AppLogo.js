@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import styles from "./AppLogo.module.css";
 import Buds from "@mui/icons-material/Savings";
-import Button from "../Shared/Button";
+import Button from "./Button";
 import { Link } from "react-router-dom";
 
 const AppLogo = (props) => {

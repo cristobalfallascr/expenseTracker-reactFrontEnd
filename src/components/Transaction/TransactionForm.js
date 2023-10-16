@@ -8,7 +8,7 @@ import Button from "../Shared/Button";
 import styles from "./NewTransactionForm.module.css";
 
 const TransactionForm = (props) => {
-  console.log(props);
+
   const params = useParams();
 
   const newTransactionActionUrl = `/user/${params.userId}/budgets/${params.budgetId}/add-transaction`;

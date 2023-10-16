@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import AppLogo from "../components/Budget/AppLogo";
+import AppLogo from "../components/Shared/AppLogo";
 
 const Home = () => {
   return <Fragment>

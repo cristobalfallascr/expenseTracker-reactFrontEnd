@@ -5,10 +5,10 @@
 .new-budget__control label{
     display: block;
     font-size: 20px;
-    color: aliceblue;
+    color: white;
     margin:10px 5px;
     align-items: baseline;
-    vertical-align: top;
+    
     width: 30%
     
 }

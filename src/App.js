@@ -15,6 +15,9 @@ import BasicRootPage from "./pages/BasicRootPage";
 import ErrorPage from "./pages/ErrorPage";
 import Auth, { action as authAction } from "./pages/AuthPage";
 import User, { userLoader } from "./pages/UserPage";
+import Signout, { action as logoutAction } from "./components/User/Signout";
+
+
 
 const router = Router([
   {
@@ -48,6 +51,9 @@ const router = Router([
         element: <NewTransaction />,
         action: newTransactionAction,
       },
+      {
+      path:"logout",
+    element:<Signout/>,action: logoutAction}
     ],
   },
 ]);
