@@ -23,7 +23,7 @@ const BudgetDetail = (props) => {
   }, [budgetData.expenseList, budgetData.budgetAmountUsed]);
 
   const [isExpanded, setIsExpanded] = useState(false);
-  console.log(isExpanded);
+
   const showFormHandler = () => {
     setExpeneseFormShow(true);
   };
@@ -51,6 +51,17 @@ const BudgetDetail = (props) => {
                 Has asignado ₡ {budgetData.budgetAmountAssigned} en distintos
                 rubros.{" "}
               </p>
+              {budgetData.budgetAmountAssigned > 0 && (
+                <p>
+                  Disponible ₡{" "}
+                  {budgetData.budgetTotalAmount <
+                  budgetData.budgetAmountAssigned
+                    ? "0"
+                    : budgetData.budgetTotalAmount -
+                      budgetData.budgetAmountAssigned}
+                  <span style={{ color: "#2fbf70" }}> </span>
+                </p>
+              )}
             </div>
             <div className={styles["budget-detail__amounts"]}>
               <p>Inicial</p>

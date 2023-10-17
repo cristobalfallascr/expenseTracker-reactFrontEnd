@@ -2,16 +2,20 @@ import React, { Fragment, useEffect, useState } from "react";
 import ExpenseItem from "./ExpenseItem";
 import styles from "./ExpenseList.module.css";
 const ExpenseList = (props) => {
+  /////////////////////////CONST
   const allExpenseTypes = [];
+  const expenseGroups = [];
+
   props.list.map((expense) => allExpenseTypes.push(expense.type));
+  // push a list of  unique categories to an array
   const uniqueExpenseTypes = [...new Set(allExpenseTypes)];
 
-  const arrayofObjects = [];
-  uniqueExpenseTypes.forEach((type) => {
-    const expense = props.list.filter((expense) => expense.type === type);
-    arrayofObjects.push({ type, expense });
-  });
+  const [expenseList, setExpenseList] = useState([]);
 
+  uniqueExpenseTypes.forEach((type) => {
+    const expense = expenseList.filter((expense) => expense.type === type);
+    expenseGroups.push({ key: type, type, expense });
+  });
 
   //Sort expenses by Type
 
@@ -25,25 +29,25 @@ const ExpenseList = (props) => {
       if (nameA > nameB) {
         return 1;
       }
-  
+
       // names must be equal
       return 0;
     });
-    console.log(sortedExpenses);
 
-  }, [props.list])
- 
+    setExpenseList(sortedExpenses);
+  }, [props.list]);
+
   return (
     <section className={styles["expense-section"]}>
       <h1 className={styles["expense-section_Title"]}>Distribución</h1>
       <hr></hr>
       <div className={styles["expense-section"]}>
-        {arrayofObjects.map((obj) => (
-          <Fragment>
-            <p>{obj.type}</p>
-            
+        {expenseGroups.map((group) => (
+          <Fragment key={group.key}>
+            <p>{group.type}</p>
+
             <div className={styles["expense-container"]}>
-              {obj.expense.map((expense) => (
+              {group.expense.map((expense) => (
                 <ExpenseItem
                   key={expense._id}
                   item={expense}

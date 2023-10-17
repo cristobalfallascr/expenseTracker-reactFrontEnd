@@ -8,7 +8,9 @@ import NewExpense, {
   action as newExpenseAction,
 } from "./components/Expense/NewExpense";
 
-import NewTransaction, {action as newTransactionAction} from "./components/Transaction/NewTransaction";
+import NewTransaction, {
+  action as newTransactionAction,
+} from "./components/Transaction/NewTransaction";
 import Budget, { budgetLoader } from "./pages/BudgetPage";
 import HomePage from "./pages/HomepPage";
 import BasicRootPage from "./pages/BasicRootPage";
@@ -16,8 +18,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Auth, { action as authAction } from "./pages/AuthPage";
 import User, { userLoader } from "./pages/UserPage";
 import Signout, { action as logoutAction } from "./components/User/Signout";
-
-
+import TransactionDetail from "./components/Transaction/TransactionDetail";
 
 const router = Router([
   {
@@ -51,9 +52,15 @@ const router = Router([
         element: <NewTransaction />,
         action: newTransactionAction,
       },
+      // {
+      //   path: ":userId/budgets/:budgetId/expense/:expenseId",
+      //   element: <TransactionDetail />,
+      // },
       {
-      path:"logout",
-    element:<Signout/>,action: logoutAction}
+        path: "logout",
+        element: <Signout />,
+        action: logoutAction,
+      },
     ],
   },
 ]);

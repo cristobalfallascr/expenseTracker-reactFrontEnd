@@ -1,0 +1,60 @@
+.container {
+
+    margin: 0;
+    width: 100%;
+    background-color: #ed7c3a;
+    color:#fff;
+    border-radius: 10px;
+    padding:20px;
+    z-index:2500
+}
+
+.container h1{
+    text-align: center;
+    background-color:#242424 ;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding:5px
+}
+
+.container  h3{
+    text-align: center;
+}
+.transaction-detail{
+    display: flex
+}
+
+table{
+    width: 100%;
+}
+table, th, tr, td {
+    font-size: 14px;
+    
+  }
+
+  .tableHeader{
+    background-color: #ffffff9f;
+    color:#ed7d3a
+  }
+
+  .actions{
+    margin: auto;
+    width:auto;
+    height: fit-content;
+    position:relative;
+    float: right;
+    right:-35px;
+    bottom:-30px
+  
+
+  }
+
+  .test{
+    color:red;
+    background-color: azure;
+  }
+
+  button{
+    background: #242424;
+  }
+

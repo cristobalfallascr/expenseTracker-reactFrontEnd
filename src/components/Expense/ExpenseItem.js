@@ -1,9 +1,10 @@
 import React, { Fragment, useState } from "react";
-import { useParams, useSubmit } from "react-router-dom";
+import { useParams, useSubmit, Link } from "react-router-dom";
 import { motion } from "framer-motion/dist/framer-motion";
 
 import styles from "./ExpenseItem.module.css";
 import TransactionForm from "../Transaction/TransactionForm";
+import TransactionDetails from "../Transaction/TransactionDetail";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddBusinessIcon from "@mui/icons-material/AddBusiness";
 import ViewListIcon from "@mui/icons-material/ViewList";
@@ -13,12 +14,15 @@ import { Fab } from "@mui/material";
 
 const ExpenseItem = (props) => {
   const submit = useSubmit();
+  // const getTD = useSubmit();
 
   const params = useParams();
   const newTransactionActionUrl = `/user/${params.userId}/budgets/${params.budgetId}/add-transaction`;
+  const transactionDetailUrl = `/user/${params.userId}/budgets/${params.budgetId}/expense/`;
   const [display, setDisplay] = useState("none");
   const [isExpanded, setIsExpanded] = useState(false);
   const [transctionFormShow, setTransactioFormShow] = useState(false);
+  const [transactionDetailShow, setTransactionDetailShow] = useState(false);
 
   const transctionFormShowHandler = () => {
     setTransactioFormShow(true);
@@ -26,6 +30,15 @@ const ExpenseItem = (props) => {
 
   const hideFormHandler = () => {
     setTransactioFormShow(false);
+  };
+
+  const transactionDetailShowHandler = () => {
+    // getTransactionDetail()
+    setTransactionDetailShow(true);
+  };
+
+  const transactionDetailHide = () => {
+    setTransactionDetailShow(false);
   };
 
   const clickHandler = (event) => {
@@ -54,6 +67,17 @@ const ExpenseItem = (props) => {
       return "#EF2D56";
     }
   };
+  // const getTransactionDetail = () => {
+  //   getTD(
+  //     {
+  //       expenseId: props.item._id,
+  //     },
+  //     {
+  //       method: "GET",
+  //       action: transactionDetailUrl + props.item._id,
+  //     }
+  //   );
+  // };
 
   // Function to set expense to 100%paid
   const setPaidHandler = () => {
@@ -135,7 +159,9 @@ const ExpenseItem = (props) => {
             >
               <AddBusinessIcon />
             </motion.button>
+
             <motion.button
+              onClick={transactionDetailShowHandler}
               className={styles["expense-item-button"]}
               whileTap={{ scale: 1.1 }}
               whileHover={{ scale: 1.1, color: "rgb(255, 217, 47)" }}
@@ -149,8 +175,15 @@ const ExpenseItem = (props) => {
               budgetId={props.item.budgetId}
               expenseId={props.item._id}
               hideFormHandler={hideFormHandler}
-              submittedExpenseHandler={props.submittedExpenseHandler}
             ></TransactionForm>
+          )}
+
+          {transactionDetailShow && (
+            <TransactionDetails
+              title={props.item.title}
+              expenseId={props.item._id}
+              hideFormHandler={transactionDetailHide}
+            ></TransactionDetails>
           )}
         </motion.div>
 
@@ -169,7 +202,7 @@ const ExpenseItem = (props) => {
           >
             <ExpandMoreIcon />
           </motion.h1>
-          {props.item.type.includes('Servicios')  &&
+          {props.item.type.includes("Servicios") &&
             props.item.availableAmount > 0 && (
               <motion.div
                 className={styles.setpaid}
