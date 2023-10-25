@@ -1,5 +1,5 @@
-import React from "react";
-import { Form, Link, useParams } from "react-router-dom";
+import React, { Fragment } from "react";
+import { Form, Link, useParams, useRouteLoaderData } from "react-router-dom";
 import styles from "./Navigation.module.css";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Button from "./Button";
@@ -10,21 +10,21 @@ const MainNavigation = () => {
     <header className={styles.header}>
       <nav>
         <ul className={styles.list}>
-          <li>
-            <Link to={"/user/" + params.userId}>Presupuestos</Link>
-          </li>
+          <Fragment>
+            <li>
+              <Link to={"/user/" + params.userId}>Presupuestos</Link>
+            </li>
 
-          <li>
-            <Link to="/user/profile">Mi perfil</Link>
-          </li>
-      
+            <li>
+              <Link to="/user/profile">Mi perfil</Link>
+            </li>
+
+            <Form action="/user/logout" method="post">
+              <Button formValidity={true}>Salir </Button>
+            </Form>
+          </Fragment>
         </ul>
-
       </nav>
-      <Form action="/user/logout" method="post">
-        <Button formValidity={true}>Salir   </Button>
-      </Form>
-
     </header>
   );
 };

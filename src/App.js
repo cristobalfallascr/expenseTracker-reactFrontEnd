@@ -17,14 +17,16 @@ import BasicRootPage from "./pages/BasicRootPage";
 import ErrorPage from "./pages/ErrorPage";
 import Auth, { action as authAction } from "./pages/AuthPage";
 import User, { userLoader } from "./pages/UserPage";
-import Signout, { action as logoutAction } from "./components/User/Signout";
-import TransactionDetail from "./components/Transaction/TransactionDetail";
+import { action as logoutAction } from "./components/User/Signout";
+
+import { tokenLoader } from "./util/authToken";
 
 const router = Router([
   {
     path: "/",
     element: <BasicRootPage />,
     errorElement: <ErrorPage />,
+
     children: [
       { path: "", index: true, element: <HomePage /> },
       { path: "auth", element: <Auth />, action: authAction },
@@ -35,6 +37,8 @@ const router = Router([
     path: "/user",
     element: <BasicRootPage />,
     errorElement: <ErrorPage />,
+    id: "user",
+    loader: tokenLoader,
     children: [
       { path: ":userId", element: <User />, loader: userLoader },
       {
@@ -58,7 +62,7 @@ const router = Router([
       // },
       {
         path: "logout",
-        element: <Signout />,
+
         action: logoutAction,
       },
     ],

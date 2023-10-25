@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { useLoaderData, Link, json } from "react-router-dom";
+import { useLoaderData, Link, json, redirect } from "react-router-dom";
 import { getAuthToken } from "../util/authToken";
 import Modal from "../components/Shared/Modal";
 import CreateBudget from "../components/Budget/CreateBudget";
@@ -55,18 +55,24 @@ const User = () => {
 export default User;
 
 export async function userLoader({ params }) {
+  const token = getAuthToken();
   const userId = params.userId;
-  const response = await fetch(
-    `${process.env.REACT_APP_BACKEND}/users/${userId}`,
-    {
-      headers: {
-        Authorization: "Bearer " + getAuthToken(),
-      },
-    }
-  );
-  if (!response.ok) {
-    throw json({ message: response.statusText }, { status: response.status });
+
+  if (!token) {
+    return redirect("/auth?mode=login");
   } else {
-    return response;
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND}/users/${userId}`,
+      {
+        headers: {
+          Authorization: "Bearer " + getAuthToken(),
+        },
+      }
+    );
+    if (!response.ok) {
+      throw json({ message: response.statusText }, { status: response.status });
+    } else {
+      return response;
+    }
   }
 }

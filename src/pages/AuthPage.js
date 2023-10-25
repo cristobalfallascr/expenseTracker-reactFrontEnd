@@ -48,8 +48,11 @@ export async function action({ request }) {
   if (mode === "login") {
     localStorage.setItem("user", resData.userId);
     localStorage.setItem("token", token);
-    return redirect(`/user/${resData.userId}`);
+    const expirationDate = new Date()
+    expirationDate.setHours(expirationDate.getHours() + 1)
+    localStorage.setItem("expirationDate", expirationDate);
   }
+  return redirect(`/user/${resData.userId}`);
 
   return redirect("/auth?mode=login");
 }
