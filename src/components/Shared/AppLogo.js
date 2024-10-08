@@ -11,14 +11,14 @@ const AppLogo = (props) => {
       <div className={styles.container}>
         <div className={styles["app-name"]}>
           <h1>
-            <Buds></Buds> Buds
+            On-Prem Application
           </h1>
-          <p>Buds es una aplicación de uso personal que te permite llevar el control de tu presupuesto mensual, ingresos y gastos. </p>
+          <p>This is a web application </p>
         </div>
       </div>
       <div className={styles["form__actions"]}>
         <Link  to={'/auth?mode=login'} >
-            Comenzar
+            Start
           </Link>
         </div>
     </Fragment>

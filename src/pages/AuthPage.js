@@ -54,5 +54,5 @@ export async function action({ request }) {
   }
   return redirect(`/user/${resData.userId}`);
 
-  return redirect("/auth?mode=login");
+  
 }

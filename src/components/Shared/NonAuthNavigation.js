@@ -9,13 +9,13 @@ const MainNavigation = () => {
       <nav>
         <ul className={styles.list}>
           <li>
-            <Link to="/">Inicio</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/auth?mode=login">Acceder</Link>
+            <Link to="/auth?mode=login">Sign in</Link>
           </li>
           <li>
-            <Link to="/contact">Contacto</Link>
+            <Link to="/contact">Contact Us</Link>
           </li>
         </ul>
       </nav>
